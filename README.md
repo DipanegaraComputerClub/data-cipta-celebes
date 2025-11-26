@@ -57,7 +57,7 @@
 
 ### 1. Clone Repository (jika belum)
 ```bash
-git clone <repository-url>
+git clone https://github.com/DipanegaraComputerClub/data-cipta-celebes.git
 cd startup-nextjs-main
 ```
 
@@ -76,6 +76,11 @@ yarn install
 **Menggunakan pnpm:**
 ```bash
 pnpm install
+```
+
+**Menggunakan Bun (Rekomendasi):**
+```bash
+bun install
 ```
 
 > **Catatan:** Pastikan Node.js dan npm sudah terinstal dengan benar. Cek versi dengan menjalankan `node -v` dan `npm -v`.
@@ -344,33 +349,3 @@ Pastikan `postcss.config.js` dan `tailwind.config.js` sudah konfigurasi dengan b
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs)
 - [ESLint Documentation](https://eslint.org/docs)
-
----
-
-## 📝 Catatan Penting
-
-1. **Node Modules:** Folder `node_modules/` sudah di-ignore oleh git. Selalu jalankan `npm install` setelah clone repository.
-2. **Environment Variables:** Jangan commit file `.env.local` ke repository.
-3. **Build Cache:** Folder `.next/` dapat di-delete untuk clean build.
-4. **Type Safety:** Pastikan selalu menjalankan `npm run lint` sebelum commit.
-
----
-
-## ❓ FAQ
-
-**Q: Bagaimana cara menambah halaman baru?**  
-A: Buat folder di `src/app/` dengan struktur routing Next.js App Router, misal `src/app/new-page/page.tsx`
-
-**Q: Bagaimana cara menggunakan image dari external source?**  
-A: Gunakan `next/image` component. Remote patterns sudah di-configure untuk `cdn.sanity.io`
-
-**Q: Bagaimana cara setup environment variables?**  
-A: Buat file `.env.local` di root project dengan format `NEXT_PUBLIC_*` untuk variables yang di-expose ke client.
-
-**Q: Bagaimana cara deploy project ini?**  
-A: Dapat di-deploy ke Vercel, Netlify, AWS, atau hosting provider lainnya yang support Next.js.
-
----
-
-**Last Updated:** November 2025  
-**Maintained By:** Development Team
