@@ -1,6 +1,15 @@
+"use client";
+
 import Link from "next/link";
+import { useTypewriter } from "@/hooks/useTypewriter";
 
 const Hero = () => {
+  const { displayedText, isComplete } = useTypewriter({
+    text: "Solusi Software & Custom App Development untuk transformasi digital bisnis Anda. Dengan teknologi terkini dan tim profesional, kami siap menghadirkan inovasi yang membuat bisnis Anda berkembang pesat.",
+    speed: 30,
+    delay: 300,
+  });
+
   return (
     <>
       <section
@@ -13,28 +22,39 @@ const Hero = () => {
             <div className="w-full px-4 lg:w-1/2">
               <div className="slide-left">
                 <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-5xl lg:leading-tight">
-                  Data Cipta Celebes{" "}
+                  Data Cipta{" "}
                   <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                    Next.js Template
+                    Celebes
                   </span>
                 </h1>
-                <p className="mb-6 text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg">
-                  Build stunning, responsive landing pages with modern Tailwind CSS styling and smooth animations. Perfect for startups, SaaS, and business websites with built-in Next.js 15 and professional design.
-                </p>
+                <div className="mb-6 min-h-[6rem] text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg">
+                  <p>
+                    {displayedText}
+                    <span
+                      className={`inline-block w-1 bg-primary ml-1 ${
+                        isComplete ? "animate-pulse" : "animate-blink"
+                      }`}
+                      style={{
+                        height: "1.5em",
+                        verticalAlign: "middle",
+                      }}
+                    />
+                  </p>
+                </div>
                 <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
                   <Link
-                    href="https://wa.me/6282197855715?text=Halo%20saya%20ingin%20bertanya"
+                    href="https://wa.me/6282197855715?text=Halo%20saya%20ingin%20berkonsultasi"
                     className="group relative inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-primary to-green-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/40 active:translate-y-0"
                   >
                     <span className="relative z-10 flex items-center gap-2">
-                      📞 Whatsapp
+                      📞 Konsultasi Gratis
                     </span>
                   </Link>
                   <Link
-                    href="#"
+                    href="#projects"
                     className="group inline-flex items-center justify-center gap-2 rounded-lg border-2 border-gray-300 px-8 py-4 text-base font-semibold text-gray-800 transition-all duration-300 hover:border-primary hover:bg-primary/5 hover:text-primary dark:border-gray-600 dark:text-gray-200 dark:hover:border-primary dark:hover:bg-primary/10 dark:hover:text-primary"
                   >
-                    <span>See Project</span>
+                    <span>Lihat Portofolio</span>
                   </Link>
                 </div>
               </div>
