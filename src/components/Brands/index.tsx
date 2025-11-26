@@ -9,7 +9,7 @@ const Brands = () => {
   const ref = useScrollAnimation();
 
   return (
-    <section className="pt-16" ref={ref}>
+    <section className="pt-16 slide-up" ref={ref}>
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">

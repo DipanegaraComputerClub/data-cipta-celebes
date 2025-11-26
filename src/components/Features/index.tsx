@@ -10,7 +10,7 @@ const Features = () => {
 
   return (
     <>
-      <section id="features" className="py-16 md:py-20 lg:py-28" ref={ref}>
+      <section id="features" className="py-16 md:py-20 lg:py-28 slide-up" ref={ref}>
         <div className="container">
           <div className="animate-fade-in-up mb-12">
             <SectionTitle

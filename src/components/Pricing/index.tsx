@@ -7,10 +7,10 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Pricing = () => {
   const [isMonthly, setIsMonthly] = useState(true);
-  const ref = useScrollAnimation({ animationType: 'bounceIn' });
+  const ref = useScrollAnimation();
 
   return (
-    <section id="pricing" className="relative z-10 py-16 md:py-20 lg:py-28" ref={ref}>
+    <section id="pricing" className="relative z-10 py-16 md:py-20 lg:py-28 slide-up" ref={ref}>
       <div className="container">
         <div className="animate-fade-in-up">
           <SectionTitle

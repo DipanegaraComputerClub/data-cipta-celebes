@@ -6,12 +6,12 @@ import blogData from "./blogData";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Blog = () => {
-  const ref = useScrollAnimation({ animationType: 'fadeInRight' });
+  const ref = useScrollAnimation();
 
   return (
     <section
       id="blog"
-      className="bg-gray-light dark:bg-bg-color-dark py-16 md:py-20 lg:py-28"
+      className="bg-gray-light dark:bg-bg-color-dark py-16 md:py-20 lg:py-28 slide-right"
       ref={ref}
     >
       <div className="container">

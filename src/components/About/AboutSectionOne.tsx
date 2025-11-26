@@ -11,7 +11,7 @@ const checkIcon = (
 );
 
 const AboutSectionOne = () => {
-  const ref = useScrollAnimation({ animationType: 'fadeInLeft' });
+  const ref = useScrollAnimation();
 
   const List = ({ text }) => (
     <p className="text-body-color mb-5 flex items-center text-lg font-medium transition-all duration-300 hover:translate-x-1 dark:text-body-color-dark">
@@ -23,7 +23,7 @@ const AboutSectionOne = () => {
   );
 
   return (
-    <section id="about" className="pt-16 md:pt-20 lg:pt-28" ref={ref}>
+    <section id="about" className="pt-16 md:pt-20 lg:pt-28 slide-left" ref={ref}>
       <div className="container">
         <div className="border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28">
           <div className="-mx-4 flex flex-wrap items-center">

@@ -954,14 +954,130 @@ layer(base);
     transition: box-shadow 0.3s ease;
   }
 
-  /* Main Scroll Animation - Fade In Up (default) */
-  .animate-in-view {
-    animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+  /* Professional Fade Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
-  /* Stagger animations on scroll - only for stagger-item */
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  /* Professional Slide Animations */
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideOutDown {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+  }
+
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideOutUp {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideOutLeft {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideOutRight {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+  }
+
+  /* Main Scroll Animations - Scroll In */
+  .animate-in-view {
+    animation: fadeIn 0.8s ease-out forwards !important;
+  }
+
+  .animate-out-view {
+    animation: fadeOut 0.8s ease-out forwards !important;
+  }
+
+  /* Stagger animations on scroll */
   .stagger-item.animate-in-view {
-    animation: fadeInUp 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+    animation: fadeIn 0.8s ease-out forwards !important;
+  }
+
+  .stagger-item.animate-out-view {
+    animation: fadeOut 0.8s ease-out forwards !important;
   }
 
   /* Stagger delays with smooth easing */
@@ -1013,60 +1129,132 @@ layer(base);
     animation-delay: 880ms !important;
   }
 
-  /* Scroll Animation Variants - Override default animation */
-  
-  /* Fade In Down */
-  section[style*="--animation-type: fadeInDown"].animate-in-view,
-  div[style*="--animation-type: fadeInDown"].animate-in-view {
-    animation: fadeInDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
-  }
-  
-  /* Fade In Left */
-  section[style*="--animation-type: fadeInLeft"].animate-in-view,
-  div[style*="--animation-type: fadeInLeft"].animate-in-view {
-    animation: fadeInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
-  }
-  
-  /* Fade In Right */
-  section[style*="--animation-type: fadeInRight"].animate-in-view,
-  div[style*="--animation-type: fadeInRight"].animate-in-view {
-    animation: fadeInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
-  }
-  
-  /* Scale In */
-  section[style*="--animation-type: scaleIn"].animate-in-view,
-  div[style*="--animation-type: scaleIn"].animate-in-view {
-    animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
-  }
-  
-  /* Bounce In */
-  section[style*="--animation-type: bounceIn"].animate-in-view,
-  div[style*="--animation-type: bounceIn"].animate-in-view {
-    animation: bounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+  /* Stagger delays - out view */
+  .stagger-item:nth-child(1).animate-out-view {
+    animation-delay: 0ms !important;
   }
 
-  /* Alternative scroll animations */
-  .scroll-fade-in.animate-in-view {
-    animation: fadeIn 0.8s ease-out forwards;
+  .stagger-item:nth-child(2).animate-out-view {
+    animation-delay: 80ms !important;
   }
 
-  .scroll-fade-in-up.animate-in-view {
-    animation: fadeInUp 0.8s ease-out forwards;
+  .stagger-item:nth-child(3).animate-out-view {
+    animation-delay: 160ms !important;
   }
 
-  .scroll-fade-in-left.animate-in-view {
-    animation: fadeInLeft 0.8s ease-out forwards;
+  .stagger-item:nth-child(4).animate-out-view {
+    animation-delay: 240ms !important;
   }
 
-  .scroll-fade-in-right.animate-in-view {
-    animation: fadeInRight 0.8s ease-out forwards;
+  .stagger-item:nth-child(5).animate-out-view {
+    animation-delay: 320ms !important;
   }
 
-  .scroll-zoom-in.animate-in-view {
-    animation: zoomIn 0.8s ease-out forwards;
+  .stagger-item:nth-child(6).animate-out-view {
+    animation-delay: 400ms !important;
   }
 
-  .scroll-bounce-in.animate-in-view {
-    animation: bounceIn 0.8s ease-out forwards;
+  .stagger-item:nth-child(7).animate-out-view {
+    animation-delay: 480ms !important;
+  }
+
+  .stagger-item:nth-child(8).animate-out-view {
+    animation-delay: 560ms !important;
+  }
+
+  .stagger-item:nth-child(9).animate-out-view {
+    animation-delay: 640ms !important;
+  }
+
+  .stagger-item:nth-child(10).animate-out-view {
+    animation-delay: 720ms !important;
+  }
+
+  .stagger-item:nth-child(11).animate-out-view {
+    animation-delay: 800ms !important;
+  }
+
+  .stagger-item:nth-child(12).animate-out-view {
+    animation-delay: 880ms !important;
+  }
+
+  /* Animation Type Variants - Slide Up */
+  .animate-in-view.slide-up {
+    animation: slideInUp 0.8s ease-out forwards !important;
+  }
+
+  .animate-out-view.slide-up {
+    animation: slideOutDown 0.8s ease-out forwards !important;
+  }
+
+  .stagger-item.animate-in-view.slide-up {
+    animation: slideInUp 0.8s ease-out forwards !important;
+  }
+
+  .stagger-item.animate-out-view.slide-up {
+    animation: slideOutDown 0.8s ease-out forwards !important;
+  }
+
+  /* Animation Type Variants - Slide Down */
+  .animate-in-view.slide-down {
+    animation: slideInDown 0.8s ease-out forwards !important;
+  }
+
+  .animate-out-view.slide-down {
+    animation: slideOutUp 0.8s ease-out forwards !important;
+  }
+
+  .stagger-item.animate-in-view.slide-down {
+    animation: slideInDown 0.8s ease-out forwards !important;
+  }
+
+  .stagger-item.animate-out-view.slide-down {
+    animation: slideOutUp 0.8s ease-out forwards !important;
+  }
+
+  /* Animation Type Variants - Slide Left */
+  .animate-in-view.slide-left {
+    animation: slideInLeft 0.8s ease-out forwards !important;
+  }
+
+  .animate-out-view.slide-left {
+    animation: slideOutLeft 0.8s ease-out forwards !important;
+  }
+
+  .stagger-item.animate-in-view.slide-left {
+    animation: slideInLeft 0.8s ease-out forwards !important;
+  }
+
+  .stagger-item.animate-out-view.slide-left {
+    animation: slideOutLeft 0.8s ease-out forwards !important;
+  }
+
+  /* Animation Type Variants - Slide Right */
+  .animate-in-view.slide-right {
+    animation: slideInRight 0.8s ease-out forwards !important;
+  }
+
+  .animate-out-view.slide-right {
+    animation: slideOutRight 0.8s ease-out forwards !important;
+  }
+
+  .stagger-item.animate-in-view.slide-right {
+    animation: slideInRight 0.8s ease-out forwards !important;
+  }
+
+  .stagger-item.animate-out-view.slide-right {
+    animation: slideOutRight 0.8s ease-out forwards !important;
+  }
+
+  /* Accessibility - Respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-in-view,
+    .animate-out-view,
+    .stagger-item.animate-in-view,
+    .stagger-item.animate-out-view {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
   }
 }
