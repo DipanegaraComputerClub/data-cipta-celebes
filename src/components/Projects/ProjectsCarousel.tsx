@@ -88,7 +88,7 @@ const ProjectsCarousel = () => {
                 >
                   <div className="grid h-full grid-cols-1 md:grid-cols-2">
                     {/* Image Side */}
-                    <div className="relative h-full overflow-hidden bg-gradient-to-br from-primary/20 to-blue-600/20">
+                    <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-primary/20 to-blue-600/20 md:h-full">
                       <Image
                         src={project.image}
                         alt={project.title}
@@ -99,31 +99,31 @@ const ProjectsCarousel = () => {
                     </div>
 
                     {/* Content Side */}
-                    <div className="flex flex-col justify-between p-6 md:p-10 lg:p-12">
+                    <div className="flex flex-col justify-between overflow-y-auto p-4 md:p-10 lg:p-12">
                       <div>
-                        <div className="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1 text-sm font-semibold text-primary">
+                        <div className="mb-2 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary md:mb-3 md:px-4 md:py-1 md:text-sm">
                           {project.category}
                         </div>
-                        <h2 className="mb-4 text-2xl font-bold text-black dark:text-white md:text-3xl lg:text-4xl">
+                        <h2 className="mb-2 text-lg font-bold text-black dark:text-white md:mb-4 md:text-3xl lg:text-4xl">
                           {project.title}
                         </h2>
-                        <p className="mb-6 text-base leading-relaxed text-body-color dark:text-body-color-dark md:text-lg">
+                        <p className="mb-3 text-xs leading-relaxed text-body-color dark:text-body-color-dark md:mb-6 md:text-base lg:text-lg">
                           {project.description}
                         </p>
 
                         {/* Features */}
-                        <div className="mb-6">
-                          <h3 className="mb-3 text-sm font-semibold text-black dark:text-white">
+                        <div className="mb-3 md:mb-6">
+                          <h3 className="mb-2 text-xs font-semibold text-black dark:text-white md:mb-3 md:text-sm">
                             Fitur Utama:
                           </h3>
-                          <div className="grid grid-cols-2 gap-2 md:grid-cols-3">
+                          <div className="grid grid-cols-2 gap-1 md:gap-2 lg:grid-cols-3">
                             {project.features.map((feature, idx) => (
                               <div
                                 key={idx}
-                                className="flex items-start gap-2"
+                                className="flex items-start gap-1 md:gap-2"
                               >
-                                <span className="mt-1 text-primary">✓</span>
-                                <span className="text-sm text-body-color dark:text-body-color-dark">
+                                <span className="mt-0.5 flex-shrink-0 text-primary md:mt-1">✓</span>
+                                <span className="text-xs text-body-color dark:text-body-color-dark md:text-sm">
                                   {feature}
                                 </span>
                               </div>
@@ -132,15 +132,15 @@ const ProjectsCarousel = () => {
                         </div>
 
                         {/* Technologies */}
-                        <div className="mb-6">
-                          <h3 className="mb-2 text-sm font-semibold text-black dark:text-white">
+                        <div className="mb-3 md:mb-6">
+                          <h3 className="mb-1 text-xs font-semibold text-black dark:text-white md:mb-2 md:text-sm">
                             Tech Stack:
                           </h3>
-                          <div className="flex flex-wrap gap-2">
+                          <div className="flex flex-wrap gap-1 md:gap-2">
                             {project.technologies.map((tech, idx) => (
                               <span
                                 key={idx}
-                                className="rounded-full bg-gray-light px-3 py-1 text-xs font-medium text-body-color dark:bg-gray-dark dark:text-body-color-dark"
+                                className="rounded-full bg-gray-light px-2 py-0.5 text-xs font-medium text-body-color dark:bg-gray-dark dark:text-body-color-dark md:px-3 md:py-1"
                               >
                                 {tech}
                               </span>
@@ -152,9 +152,9 @@ const ProjectsCarousel = () => {
                       {/* CTA Button */}
                       <Link
                         href={`/project/${project.slug}`}
-                        className="inline-flex w-fit items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-blue-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                        className="mt-2 inline-flex w-fit items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-blue-600 px-4 py-2 text-xs font-semibold text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 md:mt-0 md:px-6 md:py-3 md:text-sm"
                       >
-                        Lihat Detail Proyek →
+                        Lihat Detail →
                       </Link>
                     </div>
                   </div>
@@ -165,11 +165,11 @@ const ProjectsCarousel = () => {
             {/* Navigation Buttons */}
             <button
               onClick={handlePrev}
-              className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-3 text-black transition-all duration-300 hover:bg-white hover:shadow-lg dark:bg-gray-dark/80 dark:text-white dark:hover:bg-gray-dark"
+              className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-2 text-black transition-all duration-300 hover:bg-white hover:shadow-lg dark:bg-gray-dark/80 dark:text-white dark:hover:bg-gray-dark md:left-4 md:p-3"
               aria-label="Previous slide"
             >
               <svg
-                className="h-6 w-6"
+                className="h-4 w-4 md:h-6 md:w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -185,11 +185,11 @@ const ProjectsCarousel = () => {
 
             <button
               onClick={handleNext}
-              className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-3 text-black transition-all duration-300 hover:bg-white hover:shadow-lg dark:bg-gray-dark/80 dark:text-white dark:hover:bg-gray-dark"
+              className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-2 text-black transition-all duration-300 hover:bg-white hover:shadow-lg dark:bg-gray-dark/80 dark:text-white dark:hover:bg-gray-dark md:right-4 md:p-3"
               aria-label="Next slide"
             >
               <svg
-                className="h-6 w-6"
+                className="h-4 w-4 md:h-6 md:w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -205,15 +205,15 @@ const ProjectsCarousel = () => {
           </div>
 
           {/* Carousel Indicators/Dots */}
-          <div className="mt-8 flex justify-center gap-3">
+          <div className="mt-4 flex justify-center gap-2 md:mt-8 md:gap-3">
             {projectsData.map((_, index) => (
               <button
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className={`rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? "w-8 bg-primary"
-                    : "w-2 bg-gray-400 hover:bg-gray-500 dark:bg-gray-600 dark:hover:bg-gray-500"
+                    ? "w-6 h-2 md:w-8 bg-primary"
+                    : "w-2 h-2 bg-gray-400 hover:bg-gray-500 dark:bg-gray-600 dark:hover:bg-gray-500"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -222,28 +222,28 @@ const ProjectsCarousel = () => {
         </div>
 
         {/* Stats */}
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
-          <div className="rounded-lg bg-white p-8 text-center shadow-lg dark:bg-gray-dark">
-            <div className="mb-2 text-3xl font-bold text-primary">
+        <div className="mt-8 grid grid-cols-1 gap-4 md:mt-16 md:gap-6 md:grid-cols-3">
+          <div className="rounded-lg bg-white p-6 text-center shadow-lg dark:bg-gray-dark md:p-8">
+            <div className="mb-2 text-2xl font-bold text-primary md:text-3xl">
               {projectsData.length}+
             </div>
-            <p className="text-body-color dark:text-body-color-dark">
+            <p className="text-xs text-body-color dark:text-body-color-dark md:text-base">
               Proyek Selesai
             </p>
           </div>
-          <div className="rounded-lg bg-white p-8 text-center shadow-lg dark:bg-gray-dark">
-            <div className="mb-2 text-3xl font-bold text-primary">
+          <div className="rounded-lg bg-white p-6 text-center shadow-lg dark:bg-gray-dark md:p-8">
+            <div className="mb-2 text-2xl font-bold text-primary md:text-3xl">
               {new Set(projectsData.flatMap((p) => p.technologies)).size}+
             </div>
-            <p className="text-body-color dark:text-body-color-dark">
+            <p className="text-xs text-body-color dark:text-body-color-dark md:text-base">
               Teknologi yang Dikuasai
             </p>
           </div>
-          <div className="rounded-lg bg-white p-8 text-center shadow-lg dark:bg-gray-dark">
-            <div className="mb-2 text-3xl font-bold text-primary">
+          <div className="rounded-lg bg-white p-6 text-center shadow-lg dark:bg-gray-dark md:p-8">
+            <div className="mb-2 text-2xl font-bold text-primary md:text-3xl">
               {new Set(projectsData.map((p) => p.category)).size}+
             </div>
-            <p className="text-body-color dark:text-body-color-dark">
+            <p className="text-xs text-body-color dark:text-body-color-dark md:text-base">
               Tipe Aplikasi
             </p>
           </div>
