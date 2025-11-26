@@ -7,7 +7,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Pricing = () => {
   const [isMonthly, setIsMonthly] = useState(true);
-  const ref = useScrollAnimation();
+  const ref = useScrollAnimation({ animationType: 'bounceIn' });
 
   return (
     <section id="pricing" className="relative z-10 py-16 md:py-20 lg:py-28" ref={ref}>

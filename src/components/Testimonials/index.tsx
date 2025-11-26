@@ -36,7 +36,7 @@ const testimonialData: Testimonial[] = [
 ];
 
 const Testimonials = () => {
-  const ref = useScrollAnimation();
+  const ref = useScrollAnimation({ animationType: 'scaleIn' });
 
   return (
     <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28" ref={ref}>

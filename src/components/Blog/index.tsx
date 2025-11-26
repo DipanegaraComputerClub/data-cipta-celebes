@@ -6,7 +6,7 @@ import blogData from "./blogData";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Blog = () => {
-  const ref = useScrollAnimation();
+  const ref = useScrollAnimation({ animationType: 'fadeInRight' });
 
   return (
     <section
