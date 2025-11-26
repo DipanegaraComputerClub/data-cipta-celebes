@@ -6,31 +6,33 @@ const NewsLatterBox = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="shadow-three dark:bg-gray-dark relative z-10 rounded-xs bg-white p-8 sm:p-11 lg:p-8 xl:p-11">
-      <h3 className="mb-4 text-2xl leading-tight font-bold text-black dark:text-white">
+    <div className="shadow-three dark:bg-gray-dark relative z-10 rounded-lg bg-white p-8 sm:p-11 lg:p-8 xl:p-11 transition-all duration-300 hover:shadow-lg hover-lift animate-fade-in-up">
+      <h3 className="mb-4 text-2xl leading-tight font-bold text-black dark:text-white transition-colors animate-fade-in-down">
         Subscribe to receive future updates
       </h3>
       <p className="border-body-color/25 text-body-color mb-11 border-b pb-11 text-base leading-relaxed dark:border-white/25">
-        Lorem ipsum dolor sited Sed ullam corper consectur adipiscing Mae ornare
-        massa quis lectus.
+        Get the latest updates, tips and news delivered directly to your inbox. Never spam, always quality content.
       </p>
       <div>
         <input
           type="text"
           name="name"
           placeholder="Enter your name"
-          className="border-stroke text-body-color focus:border-primary dark:text-body-color-dark dark:shadow-two dark:focus:border-primary mb-4 w-full rounded-xs border bg-[#f8f8f8] px-6 py-3 text-base outline-hidden dark:border-transparent dark:bg-[#2C303B] dark:focus:shadow-none"
+          suppressHydrationWarning
+          className="border-stroke text-body-color focus:border-primary focus:shadow-md dark:text-body-color-dark dark:shadow-two dark:focus:border-primary mb-4 w-full rounded-lg border bg-[#f8f8f8] px-6 py-3 text-base outline-hidden transition-all duration-300 dark:border-transparent dark:bg-[#2C303B] dark:focus:shadow-md"
         />
         <input
           type="email"
           name="email"
           placeholder="Enter your email"
-          className="border-stroke text-body-color focus:border-primary dark:text-body-color-dark dark:shadow-two dark:focus:border-primary mb-4 w-full rounded-xs border bg-[#f8f8f8] px-6 py-3 text-base outline-hidden dark:border-transparent dark:bg-[#2C303B] dark:focus:shadow-none"
+          suppressHydrationWarning
+          className="border-stroke text-body-color focus:border-primary focus:shadow-md dark:text-body-color-dark dark:shadow-two dark:focus:border-primary mb-4 w-full rounded-lg border bg-[#f8f8f8] px-6 py-3 text-base outline-hidden transition-all duration-300 dark:border-transparent dark:bg-[#2C303B] dark:focus:shadow-md"
         />
         <input
           type="submit"
           value="Subscribe"
-          className="bg-primary shadow-submit hover:bg-primary/90 dark:shadow-submit-dark mb-5 flex w-full cursor-pointer items-center justify-center rounded-xs px-9 py-4 text-base font-medium text-white duration-300"
+          suppressHydrationWarning
+          className="bg-gradient-to-r from-primary to-blue-600 shadow-lg shadow-primary/30 hover:shadow-lg hover:shadow-primary/40 dark:shadow-submit-dark mb-5 flex w-full cursor-pointer items-center justify-center rounded-lg px-9 py-4 text-base font-medium text-white transition-all duration-300 hover:-translate-y-1 active:translate-y-0"
         />
         <p className="text-body-color dark:text-body-color-dark text-center text-base leading-relaxed">
           No spam guaranteed, So please don’t send any spam mail.

@@ -3,29 +3,33 @@ import { useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
 import OfferList from "./OfferList";
 import PricingBox from "./PricingBox";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Pricing = () => {
   const [isMonthly, setIsMonthly] = useState(true);
+  const ref = useScrollAnimation();
 
   return (
-    <section id="pricing" className="relative z-10 py-16 md:py-20 lg:py-28">
+    <section id="pricing" className="relative z-10 py-16 md:py-20 lg:py-28" ref={ref}>
       <div className="container">
-        <SectionTitle
-          title="Simple and Affordable Pricing"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
-          center
-          width="665px"
-        />
+        <div className="animate-fade-in-up">
+          <SectionTitle
+            title="Simple and Affordable Pricing"
+            paragraph="Choose the perfect plan for your needs. Flexible pricing options with premium features at competitive rates."
+            center
+            width="665px"
+          />
+        </div>
 
         <div className="w-full">
-          <div className="mb-8 flex justify-center md:mb-12 lg:mb-16">
+          <div className="mb-8 flex justify-center md:mb-12 lg:mb-16 animate-fade-in">
             <span
               onClick={() => setIsMonthly(true)}
               className={`${
                 isMonthly
                   ? "pointer-events-none text-primary"
                   : "text-dark dark:text-white"
-              } mr-4 cursor-pointer text-base font-semibold`}
+              } mr-4 cursor-pointer text-base font-semibold transition-colors duration-300`}
             >
               Monthly
             </span>
@@ -38,7 +42,7 @@ const Pricing = () => {
                 <div
                   className={`${
                     isMonthly ? "" : "translate-x-full"
-                  } shadow-switch-1 absolute left-0 top-[-4px] flex h-7 w-7 items-center justify-center rounded-full bg-primary transition`}
+                  } shadow-switch-1 absolute left-0 top-[-4px] flex h-7 w-7 items-center justify-center rounded-full bg-primary transition-all duration-300`}
                 >
                   <span className="active h-4 w-4 rounded-full bg-white"></span>
                 </div>
@@ -50,7 +54,7 @@ const Pricing = () => {
                 isMonthly
                   ? "text-dark dark:text-white"
                   : "pointer-events-none text-primary"
-              } ml-4 cursor-pointer text-base font-semibold`}
+              } ml-4 cursor-pointer text-base font-semibold transition-colors duration-300`}
             >
               Yearly
             </span>

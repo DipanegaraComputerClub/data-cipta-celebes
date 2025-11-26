@@ -10,7 +10,7 @@ export default function Video() {
 
   return (
     <>
-      <section className="relative z-10 py-16 md:py-20 lg:py-28">
+      <section className="relative z-10 py-16 md:py-20 lg:py-28 animate-fade-in">
         <div className="container">
           <SectionTitle
             title="We are ready to help"
@@ -22,7 +22,7 @@ export default function Video() {
         <div className="relative overflow-hidden">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
-              <div className="mx-auto max-w-[770px] overflow-hidden rounded-md">
+              <div className="mx-auto max-w-[770px] overflow-hidden rounded-md animate-scale-in">
                 <div className="relative aspect-77/40 items-center justify-center">
                   <Image
                     src="/images/video/image.png"
@@ -34,7 +34,8 @@ export default function Video() {
                     <button
                       aria-label="video play button"
                       onClick={() => setOpen(true)}
-                      className="text-primary flex h-[70px] w-[70px] items-center justify-center rounded-full bg-white/75 transition hover:bg-white"
+                      suppressHydrationWarning
+                      className="text-primary flex h-[70px] w-[70px] items-center justify-center rounded-full bg-white/75 transition hover:bg-white animate-pulse-subtle hover-scale"
                     >
                       <svg
                         width="16"

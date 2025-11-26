@@ -8,8 +8,8 @@ const PricingBox = (props: {
   const { price, duration, packageName, subtitle, children } = props;
 
   return (
-    <div className="w-full">
-      <div className="shadow-three hover:shadow-one dark:bg-gray-dark dark:shadow-two dark:hover:shadow-gray-dark relative z-10 rounded-xs bg-white px-8 py-10">
+    <div className="stagger-item w-full">
+      <div className="shadow-three hover:shadow-one dark:bg-gray-dark dark:shadow-two dark:hover:shadow-gray-dark hover-lift relative z-10 rounded-lg bg-white px-8 py-10 transition-all duration-300">
         <div className="flex items-center justify-between">
           <h3 className="price mb-2 text-[32px] font-bold text-black dark:text-white">
             $<span className="amount">{price}</span>
@@ -23,7 +23,7 @@ const PricingBox = (props: {
         </div>
         <p className="text-body-color mb-7 text-base">{subtitle}</p>
         <div className="border-body-color/10 mb-8 border-b pb-8 dark:border-white/10">
-          <button className="bg-primary/80 hover:shadow-signUp flex w-full items-center justify-center rounded-xs p-3 text-base font-semibold text-white transition duration-300 ease-in-out">
+          <button suppressHydrationWarning className="bg-gradient-to-r from-primary to-blue-600 hover:shadow-signUp flex w-full items-center justify-center rounded-lg p-3 text-base font-semibold text-white transition duration-300 ease-in-out hover:shadow-lg hover:shadow-primary/30 active:scale-95">
             Start Free Trial
           </button>
         </div>

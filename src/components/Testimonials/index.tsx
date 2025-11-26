@@ -1,6 +1,9 @@
+"use client";
+
 import { Testimonial } from "@/types/testimonial";
 import SectionTitle from "../Common/SectionTitle";
 import SingleTestimonial from "./SingleTestimonial";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const testimonialData: Testimonial[] = [
   {
@@ -33,8 +36,10 @@ const testimonialData: Testimonial[] = [
 ];
 
 const Testimonials = () => {
+  const ref = useScrollAnimation();
+
   return (
-    <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
+    <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28" ref={ref}>
       <div className="container">
         <SectionTitle
           title="What Our Users Says"

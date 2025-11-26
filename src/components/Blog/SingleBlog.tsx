@@ -6,12 +6,12 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
   const { title, image, paragraph, author, tags, publishDate } = blog;
   return (
     <>
-      <div className="group shadow-one hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark relative overflow-hidden rounded-xs bg-white duration-300">
+      <div className="group shadow-one hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark relative overflow-hidden rounded-xs bg-white duration-300 hover-lift transition-all stagger-item">
         <Link
           href="/blog-details"
-          className="relative block aspect-37/22 w-full"
+          className="relative block aspect-37/22 w-full transition-transform group-hover:scale-105"
         >
-          <span className="bg-primary absolute top-6 right-6 z-20 inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white capitalize">
+          <span className="bg-primary absolute top-6 right-6 z-20 inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white capitalize animate-scale-in group-hover:scale-110 transition-transform">
             {tags[0]}
           </span>
           <Image src={image} alt="image" fill />
@@ -20,7 +20,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
           <h3>
             <Link
               href="/blog-details"
-              className="hover:text-primary dark:hover:text-primary mb-4 block text-xl font-bold text-black sm:text-2xl dark:text-white"
+              className="hover:text-primary dark:hover:text-primary mb-4 block text-xl font-bold text-black sm:text-2xl dark:text-white transition-colors"
             >
               {title}
             </Link>
@@ -31,8 +31,8 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
           <div className="flex items-center">
             <div className="border-body-color/10 mr-5 flex items-center border-r pr-5 xl:mr-3 xl:pr-3 2xl:mr-5 2xl:pr-5 dark:border-white/10">
               <div className="mr-4">
-                <div className="relative h-10 w-10 overflow-hidden rounded-full">
-                  <Image src={author.image} alt="author" fill />
+                <div className="relative h-10 w-10 overflow-hidden rounded-full transition-transform hover:scale-110">
+                  <Image src={author.image} alt="author" fill sizes="40px" />
                 </div>
               </div>
               <div className="w-full">
