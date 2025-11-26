@@ -8,39 +8,189 @@ const Hero = () => {
         className="relative z-10 overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-white pb-16 pt-[120px] dark:from-gray-dark dark:via-gray-dark/90 dark:to-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
       >
         <div className="container">
-          <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4">
-              <div className="mx-auto max-w-[800px] text-center">
-                <div className="animate-fade-in-down mb-6">
-                  <span className="inline-block rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-primary dark:bg-blue-900/30 dark:text-blue-400">
-                    ✨ Modern & Professional
-                  </span>
-                </div>
-                <h1 className="animate-fade-in-up mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight">
-                  Free and Open-Source{" "}
+          <div className="-mx-4 flex flex-wrap items-center">
+            {/* Left Content */}
+            <div className="w-full px-4 lg:w-1/2">
+              <div className="slide-left">
+                <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-5xl lg:leading-tight">
+                  Data Cipta Celebes{" "}
                   <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
                     Next.js Template
-                  </span>{" "}
-                  for Startup & SaaS
+                  </span>
                 </h1>
-                <p className="animate-fade-in mb-12 text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
+                <p className="mb-6 text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg">
                   Build stunning, responsive landing pages with modern Tailwind CSS styling and smooth animations. Perfect for startups, SaaS, and business websites with built-in Next.js 15 and professional design.
                 </p>
-                <div className="animate-scale-in flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+                <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
                   <Link
-                    href="https://nextjstemplates.com/templates/saas-starter-startup"
-                    className="group relative inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-primary to-blue-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/40 active:translate-y-0"
+                    href="https://wa.me/6282197855715?text=Halo%20saya%20ingin%20bertanya"
+                    className="group relative inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-primary to-green-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/40 active:translate-y-0"
                   >
                     <span className="relative z-10 flex items-center gap-2">
-                      🔥 Get Pro Version
+                      📞 Whatsapp
                     </span>
                   </Link>
                   <Link
-                    href="https://github.com/NextJSTemplates/startup-nextjs"
+                    href="#"
                     className="group inline-flex items-center justify-center gap-2 rounded-lg border-2 border-gray-300 px-8 py-4 text-base font-semibold text-gray-800 transition-all duration-300 hover:border-primary hover:bg-primary/5 hover:text-primary dark:border-gray-600 dark:text-gray-200 dark:hover:border-primary dark:hover:bg-primary/10 dark:hover:text-primary"
                   >
-                    <span>⭐ Star on GitHub</span>
+                    <span>See Project</span>
                   </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Icon/Image */}
+            <div className="w-full px-4 lg:w-1/2">
+              <div className="slide-right flex justify-center">
+                <div className="relative w-full max-w-[400px]">
+                  <svg
+                    width="100%"
+                    height="auto"
+                    viewBox="0 0 450 450"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="drop-shadow-lg"
+                  >
+                    {/* Outer Circle */}
+                    <circle
+                      cx="225"
+                      cy="225"
+                      r="200"
+                      fill="url(#gradientCircle)"
+                      opacity="0.1"
+                    />
+                    <circle
+                      cx="225"
+                      cy="225"
+                      r="200"
+                      stroke="url(#gradientStroke)"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+
+                    {/* Inner Decorative Circles */}
+                    <circle
+                      cx="225"
+                      cy="225"
+                      r="150"
+                      fill="url(#gradientInner)"
+                      opacity="0.05"
+                    />
+                    <circle
+                      cx="225"
+                      cy="225"
+                      r="100"
+                      fill="url(#gradientCenter)"
+                      opacity="0.1"
+                    />
+
+                    {/* Icon Background */}
+                    <circle cx="225" cy="225" r="80" fill="url(#gradientIcon)" />
+
+                    {/* Data/Code Icon */}
+                    <g transform="translate(185, 185)">
+                      {/* Opening Bracket */}
+                      <path
+                        d="M 15 5 L 10 15 L 10 55 L 15 65"
+                        stroke="white"
+                        strokeWidth="3"
+                        fill="none"
+                        strokeLinecap="round"
+                      />
+                      {/* Horizontal Line */}
+                      <line
+                        x1="10"
+                        y1="35"
+                        x2="70"
+                        y2="35"
+                        stroke="white"
+                        strokeWidth="2"
+                      />
+                      {/* Closing Bracket */}
+                      <path
+                        d="M 65 5 L 70 15 L 70 55 L 65 65"
+                        stroke="white"
+                        strokeWidth="3"
+                        fill="none"
+                        strokeLinecap="round"
+                      />
+                    </g>
+
+                    {/* Decorative Dots */}
+                    <circle cx="100" cy="100" r="4" fill="url(#gradientDot)" />
+                    <circle cx="350" cy="120" r="3" fill="url(#gradientDot)" />
+                    <circle cx="80" cy="320" r="3" fill="url(#gradientDot)" />
+                    <circle cx="360" cy="300" r="4" fill="url(#gradientDot)" />
+
+                    {/* Gradients */}
+                    <defs>
+                      <linearGradient
+                        id="gradientCircle"
+                        x1="25"
+                        y1="25"
+                        x2="425"
+                        y2="425"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop offset="0%" stopColor="#4A6CF7" />
+                        <stop offset="100%" stopColor="#0EA5E9" />
+                      </linearGradient>
+                      <linearGradient
+                        id="gradientStroke"
+                        x1="25"
+                        y1="25"
+                        x2="425"
+                        y2="425"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop offset="0%" stopColor="#4A6CF7" />
+                        <stop offset="100%" stopColor="#0EA5E9" />
+                      </linearGradient>
+                      <linearGradient
+                        id="gradientInner"
+                        x1="75"
+                        y1="75"
+                        x2="375"
+                        y2="375"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop offset="0%" stopColor="#60A5FA" />
+                        <stop offset="100%" stopColor="#4A6CF7" />
+                      </linearGradient>
+                      <linearGradient
+                        id="gradientCenter"
+                        x1="125"
+                        y1="125"
+                        x2="325"
+                        y2="325"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop offset="0%" stopColor="#7C3AED" />
+                        <stop offset="100%" stopColor="#4A6CF7" />
+                      </linearGradient>
+                      <linearGradient
+                        id="gradientIcon"
+                        x1="145"
+                        y1="145"
+                        x2="305"
+                        y2="305"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop offset="0%" stopColor="#4A6CF7" />
+                        <stop offset="100%" stopColor="#0EA5E9" />
+                      </linearGradient>
+                      <radialGradient
+                        id="gradientDot"
+                        cx="50%"
+                        cy="50%"
+                        r="50%"
+                      >
+                        <stop offset="0%" stopColor="#4A6CF7" />
+                        <stop offset="100%" stopColor="#0EA5E9" />
+                      </radialGradient>
+                    </defs>
+                  </svg>
                 </div>
               </div>
             </div>

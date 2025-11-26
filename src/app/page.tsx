@@ -1,20 +1,19 @@
-import AboutSectionOne from "@/components/About/AboutSectionOne";
-import AboutSectionTwo from "@/components/About/AboutSectionTwo";
+import AboutCompany from "@/components/About/AboutCompany";
 import Blog from "@/components/Blog";
-import Brands from "@/components/Brands";
 import ScrollUp from "@/components/Common/ScrollUp";
 import Contact from "@/components/Contact";
-import Features from "@/components/Features";
+import ClientsSupport from "@/components/ClientsSupport";
 import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
+import ProjectsCarousel from "@/components/Projects/ProjectsCarousel";
+import StackAdvantages from "@/components/StackAdvantages";
 import Testimonials from "@/components/Testimonials";
-import Video from "@/components/Video";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free Next.js Template for Startup and SaaS",
-  description: "This is Home for Startup Nextjs Template",
-  // other metadata
+  title: "Data Cipta Celebes - Software & Custom App Development",
+  description:
+    "Solusi software dan aplikasi custom untuk bisnis Anda. Kami menghadirkan inovasi digital dengan teknologi terkini.",
 };
 
 export default function Home() {
@@ -22,13 +21,12 @@ export default function Home() {
     <>
       <ScrollUp />
       <Hero />
-      <Features />
-      <Video />
-      <Brands />
-      <AboutSectionOne />
-      <AboutSectionTwo />
-      <Testimonials />
+      <AboutCompany />
+      <ProjectsCarousel />
+      <StackAdvantages />
       <Pricing />
+      <ClientsSupport />
+      <Testimonials />
       <Blog />
       <Contact />
     </>

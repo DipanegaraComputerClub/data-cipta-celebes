@@ -1,162 +1,159 @@
 "use client";
-import { useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
-import OfferList from "./OfferList";
-import PricingBox from "./PricingBox";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import Link from "next/link";
+
+interface PricingTier {
+  id: number;
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+  highlighted?: boolean;
+}
+
+const pricingTiers: PricingTier[] = [
+  {
+    id: 1,
+    name: "Starter",
+    price: "2JT",
+    description: "Paket dasar untuk aplikasi sederhana",
+    features: [
+      "Single Page Application",
+      "Database Basic",
+      "Responsive Design",
+      "1 Month Support",
+      "Deployment Infrastructure",
+    ],
+  },
+  {
+    id: 2,
+    name: "Professional",
+    price: "5JT",
+    description: "Solusi lengkap untuk bisnis menengah",
+    features: [
+      "Web + Mobile App",
+      "Database Advanced",
+      "Custom Design & UX",
+      "3 Months Support",
+      "Cloud Infrastructure",
+      "API Integration",
+      "Analytics Dashboard",
+    ],
+    highlighted: true,
+  },
+  {
+    id: 3,
+    name: "Enterprise",
+    price: "Custom",
+    description: "Solusi enterprise dengan customization penuh",
+    features: [
+      "Multi-platform Development",
+      "Enterprise Database",
+      "Full Custom Solution",
+      "12 Months Support",
+      "Dedicated Infrastructure",
+      "Advanced Integration",
+      "Real-time Analytics",
+      "Machine Learning",
+    ],
+  },
+];
 
 const Pricing = () => {
-  const [isMonthly, setIsMonthly] = useState(true);
   const ref = useScrollAnimation();
 
   return (
-    <section id="pricing" className="relative z-10 py-16 md:py-20 lg:py-28 slide-up" ref={ref}>
+    <section
+      id="pricing"
+      className="bg-gray-light dark:bg-bg-color-dark py-16 md:py-20 lg:py-28 slide-up"
+      ref={ref}
+    >
       <div className="container">
-        <div className="animate-fade-in-up">
-          <SectionTitle
-            title="Simple and Affordable Pricing"
-            paragraph="Choose the perfect plan for your needs. Flexible pricing options with premium features at competitive rates."
-            center
-            width="665px"
-          />
-        </div>
+        <SectionTitle
+          title="Paket Harga Custom App & Software"
+          paragraph="Harga kompetitif untuk mengembangkan aplikasi & software custom sesuai kebutuhan bisnis Anda"
+          center
+        />
 
-        <div className="w-full">
-          <div className="mb-8 flex justify-center md:mb-12 lg:mb-16 animate-fade-in">
-            <span
-              onClick={() => setIsMonthly(true)}
-              className={`${
-                isMonthly
-                  ? "pointer-events-none text-primary"
-                  : "text-dark dark:text-white"
-              } mr-4 cursor-pointer text-base font-semibold transition-colors duration-300`}
-            >
-              Monthly
-            </span>
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-3">
+          {pricingTiers.map((tier) => (
             <div
-              onClick={() => setIsMonthly(!isMonthly)}
-              className="flex cursor-pointer items-center"
+              key={tier.id}
+              className={`stagger-item relative rounded-lg transition-all duration-300 ${
+                tier.highlighted
+                  ? "border-2 border-primary bg-white shadow-2xl lg:scale-105 dark:bg-gray-dark"
+                  : "border border-stroke bg-white shadow-lg dark:border-stroke-dark dark:bg-gray-dark"
+              }`}
             >
-              <div className="relative">
-                <div className="h-5 w-14 rounded-full bg-[#1D2144] shadow-inner"></div>
-                <div
-                  className={`${
-                    isMonthly ? "" : "translate-x-full"
-                  } shadow-switch-1 absolute left-0 top-[-4px] flex h-7 w-7 items-center justify-center rounded-full bg-primary transition-all duration-300`}
+              {tier.highlighted && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-blue-600 px-4 py-1 rounded-full text-sm font-semibold text-white">
+                  ⭐ RECOMMENDED
+                </div>
+              )}
+
+              <div className="px-8 py-10">
+                <h3 className="mb-3 text-2xl font-bold text-black dark:text-white">
+                  {tier.name}
+                </h3>
+                <p className="mb-6 text-sm text-body-color dark:text-body-color-dark">
+                  {tier.description}
+                </p>
+
+                <div className="mb-8">
+                  <span className="text-4xl font-bold text-primary">
+                    {tier.price}
+                  </span>
+                  {tier.price !== "Custom" && (
+                    <span className="ml-2 text-sm text-body-color dark:text-body-color-dark">
+                      +
+                    </span>
+                  )}
+                </div>
+
+                <Link
+                  href="https://wa.me/6282197855715?text=Halo%20saya%20ingin%20konsultasi%20paket%20app"
+                  className={`mb-8 block w-full rounded-lg py-3 text-center font-semibold transition-all duration-300 ${
+                    tier.highlighted
+                      ? "bg-gradient-to-r from-primary to-blue-600 text-white hover:shadow-lg hover:-translate-y-1"
+                      : "border-2 border-primary text-primary hover:bg-primary/5 dark:text-primary"
+                  }`}
                 >
-                  <span className="active h-4 w-4 rounded-full bg-white"></span>
+                  Konsultasi Sekarang
+                </Link>
+
+                <div className="space-y-4">
+                  {tier.features.map((feature, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <span className="mt-0.5 text-primary text-lg">✓</span>
+                      <span className="text-sm text-body-color dark:text-body-color-dark">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-            <span
-              onClick={() => setIsMonthly(false)}
-              className={`${
-                isMonthly
-                  ? "text-dark dark:text-white"
-                  : "pointer-events-none text-primary"
-              } ml-4 cursor-pointer text-base font-semibold transition-colors duration-300`}
+          ))}
+        </div>
+
+        <div className="mt-16 rounded-lg bg-white p-8 shadow-lg dark:bg-gray-dark">
+          <div className="text-center">
+            <h3 className="mb-4 text-2xl font-bold text-black dark:text-white">
+              🎯 Paket Custom Tidak Terbatas?
+            </h3>
+            <p className="mb-6 text-base text-body-color dark:text-body-color-dark">
+              Tidak menemukan paket yang sesuai? Kami siap memberikan solusi custom
+              sesuai kebutuhan spesifik bisnis Anda dengan harga yang kompetitif.
+            </p>
+            <Link
+              href="https://wa.me/6282197855715?text=Halo%20saya%20ingin%20konsultasi%20custom%20app"
+              className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-blue-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
             >
-              Yearly
-            </span>
+              📞 Hubungi Kami untuk Konsultasi
+            </Link>
           </div>
         </div>
-
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-          <PricingBox
-            packageName="Lite"
-            price={isMonthly ? "40" : "120"}
-            duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
-          >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="inactive" />
-            <OfferList text="Free Lifetime Updates" status="inactive" />
-          </PricingBox>
-          <PricingBox
-            packageName="Basic"
-            price={isMonthly ? "399" : "789"}
-            duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
-          >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="active" />
-            <OfferList text="Free Lifetime Updates" status="inactive" />
-          </PricingBox>
-          <PricingBox
-            packageName="Plus"
-            price={isMonthly ? "589" : "999"}
-            duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
-          >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="active" />
-            <OfferList text="Free Lifetime Updates" status="active" />
-          </PricingBox>
-        </div>
-      </div>
-
-      <div className="absolute bottom-0 left-0 z-[-1]">
-        <svg
-          width="239"
-          height="601"
-          viewBox="0 0 239 601"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            opacity="0.3"
-            x="-184.451"
-            y="600.973"
-            width="196"
-            height="541.607"
-            rx="2"
-            transform="rotate(-128.7 -184.451 600.973)"
-            fill="url(#paint0_linear_93:235)"
-          />
-          <rect
-            opacity="0.3"
-            x="-188.201"
-            y="385.272"
-            width="59.7544"
-            height="541.607"
-            rx="2"
-            transform="rotate(-128.7 -188.201 385.272)"
-            fill="url(#paint1_linear_93:235)"
-          />
-          <defs>
-            <linearGradient
-              id="paint0_linear_93:235"
-              x1="-90.1184"
-              y1="420.414"
-              x2="-90.1184"
-              y2="1131.65"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#4A6CF7" />
-              <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
-            </linearGradient>
-            <linearGradient
-              id="paint1_linear_93:235"
-              x1="-159.441"
-              y1="204.714"
-              x2="-159.441"
-              y2="915.952"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#4A6CF7" />
-              <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
       </div>
     </section>
   );
