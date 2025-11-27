@@ -18,7 +18,7 @@ const Hero = () => {
         className="relative z-10 overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-white pb-16 pt-[120px] dark:from-gray-dark dark:via-gray-dark/90 dark:to-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
       >
         <div className="container">
-          <div className="flex flex-col items-center gap-8 lg:flex-row lg:gap-12">
+          <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-12">
             {/* Left Content */}
             <div className="w-full px-0 lg:w-1/2 lg:px-4">
               <div className="slide-left px-4 lg:px-0">
@@ -83,105 +83,30 @@ const Hero = () => {
             </div>
 
             {/* Right Image/Illustration */}
-            <div className="w-full px-0 lg:w-1/2 lg:px-4 flex justify-center">
-              <div className="slide-right w-full max-w-[500px] relative h-[500px]">
+            <div className="w-full px-0 lg:w-1/2 lg:px-4 flex items-center justify-center">
+              <div className="slide-right w-full max-w-md relative">
                 {/* Background Gradient Blob */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/10 to-blue-600/10 blur-3xl" />
+                <div className="absolute -inset-8 rounded-3xl bg-gradient-to-br from-primary/20 to-blue-600/20 blur-3xl -z-10" />
 
-                  {/* Main Illustration SVG */}
-                  <svg
-                    width="100%"
-                    height="100%"
-                    viewBox="0 0 500 500"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="relative z-10 drop-shadow-2xl"
-                  >
-                    {/* 3D Cube/Box Illustration */}
-                    {/* Front face */}
-                    <path
-                      d="M 100 150 L 250 100 L 400 150 L 250 200 Z"
-                      fill="url(#cubeFront)"
-                      stroke="url(#cubeStroke)"
-                      strokeWidth="2"
-                    />
-                    {/* Top face */}
-                    <path
-                      d="M 250 100 L 400 150 L 400 250 L 250 200 Z"
-                      fill="url(#cubeTop)"
-                      stroke="url(#cubeStroke)"
-                      strokeWidth="2"
-                    />
-                    {/* Left face */}
-                    <path
-                      d="M 100 150 L 250 200 L 250 400 L 100 350 Z"
-                      fill="url(#cubeLeft)"
-                      stroke="url(#cubeStroke)"
-                      strokeWidth="2"
-                    />
+                {/* Professional Hero Image */}
+                <div className="relative z-10 w-full">
+                  <img
+                    src="/images/hero/hero-illustration.svg"
+                    alt="Data Cipta Celebes - Software Development"
+                    className="w-full h-auto drop-shadow-2xl rounded-2xl"
+                  />
+                </div>
 
-                    {/* Floating Elements */}
-                    <circle cx="150" cy="80" r="15" fill="#4A6CF7" opacity="0.6" />
-                    <circle cx="420" cy="320" r="12" fill="#0EA5E9" opacity="0.5" />
-                    <circle cx="80" cy="420" r="10" fill="#4A6CF7" opacity="0.4" />
-
-                    {/* Icons in cube */}
-                    {/* Code Icon */}
-                    <g transform="translate(230, 150)">
-                      <text x="0" y="20" fontSize="30" fill="white" textAnchor="middle">
-                        &lt;/&gt;
-                      </text>
-                    </g>
-
-                    {/* Database Icon */}
-                    <g transform="translate(350, 200)">
-                      <text x="0" y="20" fontSize="28" fill="white" textAnchor="middle">
-                        💾
-                      </text>
-                    </g>
-
-                    {/* Rocket Icon */}
-                    <g transform="translate(120, 280)">
-                      <text x="0" y="20" fontSize="28" fill="white" textAnchor="middle">
-                        🚀
-                      </text>
-                    </g>
-
-                    {/* Decorative Lines */}
-                    <line x1="50" y1="400" x2="150" y2="420" stroke="url(#cubeStroke)" strokeWidth="2" opacity="0.5" />
-                    <line x1="430" y1="100" x2="420" y2="180" stroke="url(#cubeStroke)" strokeWidth="2" opacity="0.5" />
-
-                    {/* Gradients */}
-                    <defs>
-                      <linearGradient id="cubeFront" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#4A6CF7" />
-                        <stop offset="100%" stopColor="#2563EB" />
-                      </linearGradient>
-                      <linearGradient id="cubeTop" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#0EA5E9" />
-                        <stop offset="100%" stopColor="#06B6D4" />
-                      </linearGradient>
-                      <linearGradient id="cubeLeft" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#3B82F6" />
-                        <stop offset="100%" stopColor="#1D4ED8" />
-                      </linearGradient>
-                      <linearGradient id="cubeStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#4A6CF7" />
-                        <stop offset="100%" stopColor="#0EA5E9" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-
-                  {/* Floating Badges */}
-                  <div className="absolute bottom-16 left-8 rounded-full bg-white px-4 py-2 shadow-lg dark:bg-gray-dark">
-                    <p className="text-sm font-semibold text-primary">Next.js</p>
-                  </div>
-                  <div className="absolute right-8 top-24 rounded-full bg-white px-4 py-2 shadow-lg dark:bg-gray-dark">
-                    <p className="text-sm font-semibold text-primary">React</p>
-                  </div>
-                  <div className="absolute bottom-32 right-12 rounded-full bg-white px-4 py-2 shadow-lg dark:bg-gray-dark">
-                    <p className="text-sm font-semibold text-primary">TypeScript</p>
-                  </div>
+                {/* Floating Badges */}
+                <div className="absolute bottom-8 left-4 rounded-full bg-white px-3 py-1 shadow-lg dark:bg-gray-dark">
+                  <p className="text-xs sm:text-sm font-semibold text-primary">Next.js</p>
+                </div>
+                <div className="absolute right-4 top-16 rounded-full bg-white px-3 py-1 shadow-lg dark:bg-gray-dark">
+                  <p className="text-xs sm:text-sm font-semibold text-primary">React</p>
+                </div>
+                <div className="absolute -bottom-2 right-8 rounded-full bg-white px-3 py-1 shadow-lg dark:bg-gray-dark">
+                  <p className="text-xs sm:text-sm font-semibold text-primary">TypeScript</p>
+                </div>
               </div>
             </div>
           </div>
