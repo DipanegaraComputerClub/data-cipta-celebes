@@ -1,0 +1,111 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Admin User
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  password  String
+  name      String
+  role      String    @default("admin")
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+// Blog Posts
+model Blog {
+  id          Int       @id @default(autoincrement())
+  title       String
+  slug        String    @unique
+  description String    @db.Text
+  content     String    @db.LongText
+  image       String
+  author      String
+  category    String
+  tags        String    @db.Text // JSON array stored as text
+  views       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// Projects
+model Project {
+  id           Int       @id @default(autoincrement())
+  title        String
+  slug         String    @unique
+  description  String    @db.Text
+  image        String
+  category     String
+  features     String    @db.Text // JSON array
+  technologies String    @db.Text // JSON array
+  link         String    @default("")
+  github       String    @default("")
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+// Custom Packages/Pricing
+model CustomPackage {
+  id            Int       @id @default(autoincrement())
+  title         String
+  description   String    @db.Text
+  price         String
+  duration      String
+  features      String    @db.Text // JSON array
+  recommended   Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+// Client Testimonials
+model Testimonial {
+  id        Int       @id @default(autoincrement())
+  name      String
+  company   String
+  position  String
+  content   String    @db.Text
+  image     String
+  rating    Int       @default(5)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+// Clients/Partners
+model Client {
+  id        Int       @id @default(autoincrement())
+  name      String
+  logo      String
+  industry  String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+// Contact Information
+model ContactInfo {
+  id        Int       @id @default(autoincrement())
+  type      String    // phone, email, address, social
+  value     String
+  label     String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+// Carousel Images
+model CarouselImage {
+  id        Int       @id @default(autoincrement())
+  title     String
+  image     String
+  order     Int       @default(0)
+  active    Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}

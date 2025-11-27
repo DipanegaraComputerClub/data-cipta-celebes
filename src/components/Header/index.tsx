@@ -42,6 +42,8 @@ const Header = () => {
   const handleLinkClick = () => {
     setNavbarOpen(false);
   };
+
+  return (
     <>
       <header
         className={`header top-0 left-0 z-40 flex w-full items-center transition-all duration-300 ${
@@ -150,6 +152,7 @@ const Header = () => {
                                 <Link
                                   href={submenuItem.path}
                                   key={index}
+                                  onClick={handleLinkClick}
                                   className="text-dark hover:text-primary block rounded-sm py-2.5 text-sm lg:px-3 dark:text-white/70 dark:hover:text-white"
                                 >
                                   {submenuItem.title}
@@ -163,7 +166,7 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              <div className="flex items-center justify-end pr-16 lg:pr-0">
+              <div className="flex items-center justify-end gap-4 lg:gap-0 lg:pr-0">
                 {/* <Link
                   href="/signin"
                   className="ease-in-up shadow-btn hover:shadow-btn-hover bg-primary hover:bg-primary/90 hidden rounded-xs px-8 py-3 text-base font-medium text-white transition duration-300 md:block md:px-9 lg:px-6 xl:px-9"
@@ -176,6 +179,12 @@ const Header = () => {
                 >
                   Sign Up
                 </Link> */}
+                <Link
+                  href="/admin"
+                  className="ease-in-up shadow-btn hover:shadow-btn-hover bg-primary hover:bg-primary/90 hidden rounded-xs px-6 py-2 text-sm font-medium text-white transition duration-300 md:block lg:px-6"
+                >
+                  Admin
+                </Link>
                 <div>
                   <ThemeToggler />
                 </div>
@@ -187,5 +196,4 @@ const Header = () => {
     </>
   );
 };
-
 export default Header;
