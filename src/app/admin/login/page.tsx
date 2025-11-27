@@ -37,26 +37,26 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 px-4 dark:from-gray-900 dark:to-gray-800">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 px-4 py-12 dark:from-gray-900 dark:to-gray-800">
       <div className="w-full max-w-md rounded-xl bg-white p-8 shadow-2xl dark:bg-gray-800">
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
             Admin Panel
           </h1>
-          <p className="mt-2 text-gray-600 dark:text-gray-400">
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
             Data Cipta Celebes
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {error && (
-            <div className="rounded-lg bg-red-50 p-4 text-sm text-red-700 dark:bg-red-900/30 dark:text-red-300 border border-red-200 dark:border-red-800">
+            <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700 dark:border-red-800 dark:bg-red-900/30 dark:text-red-300">
               {error}
             </div>
           )}
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="email" className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
               Email Address
             </label>
             <input
@@ -64,14 +64,14 @@ export default function AdminLogin() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder-gray-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 transition duration-200"
+              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder-gray-500 transition duration-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
               placeholder="admin@dataCiptaCelebes.com"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="password" className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
               Password
             </label>
             <input
@@ -79,7 +79,7 @@ export default function AdminLogin() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder-gray-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 transition duration-200"
+              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder-gray-500 transition duration-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
               placeholder="••••••••"
               required
             />
@@ -88,22 +88,22 @@ export default function AdminLogin() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full rounded-lg bg-gradient-to-r from-primary to-blue-600 px-4 py-2.5 font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 active:translate-y-0"
+            className="w-full rounded-lg bg-gradient-to-r from-primary to-blue-600 px-4 py-2.5 font-semibold text-white shadow-lg transition-all duration-300 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0 hover:shadow-xl hover:-translate-y-0.5"
           >
             {isLoading ? "Signing in..." : "Sign In"}
           </button>
         </form>
 
         <div className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-700">
-          <p className="text-center text-xs text-gray-600 dark:text-gray-400 mb-3 font-medium">
+          <p className="mb-3 text-center text-xs font-medium text-gray-600 dark:text-gray-400">
             Demo Credentials:
           </p>
           <div className="space-y-2 text-center text-xs">
             <p className="text-gray-700 dark:text-gray-300">
-              Email: <span className="font-mono bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-gray-900 dark:text-white">admin@dataCiptaCelebes.com</span>
+              Email: <span className="rounded bg-gray-100 px-2 py-1 font-mono text-gray-900 dark:bg-gray-700 dark:text-white">admin@dataCiptaCelebes.com</span>
             </p>
             <p className="text-gray-700 dark:text-gray-300">
-              Password: <span className="font-mono bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-gray-900 dark:text-white">Admin@123456</span>
+              Password: <span className="rounded bg-gray-100 px-2 py-1 font-mono text-gray-900 dark:bg-gray-700 dark:text-white">Admin@123456</span>
             </p>
           </div>
         </div>
@@ -111,7 +111,7 @@ export default function AdminLogin() {
         <div className="mt-6 text-center">
           <Link
             href="/"
-            className="inline-flex items-center text-sm font-medium text-primary hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+            className="inline-flex items-center text-sm font-medium text-primary transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
           >
             ← Back to Home
           </Link>

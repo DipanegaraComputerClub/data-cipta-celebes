@@ -33,27 +33,27 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <header className="border-b border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800">
+      <header className="border-b border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Admin Dashboard
               </h1>
               <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                 Welcome, <span className="font-semibold">{session.user?.name}</span>
               </p>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col gap-2 sm:flex-row sm:gap-3">
               <Link
                 href="/"
-                className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
               >
                 ← Back Home
               </Link>
               <button
                 onClick={() => signOut({ callbackUrl: "/admin/login" })}
-                className="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-md transition-all hover:bg-red-700 active:scale-95"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-md transition-all hover:bg-red-700 active:scale-95"
               >
                 Sign Out
               </button>
@@ -63,9 +63,9 @@ export default function AdminDashboard() {
       </header>
 
       {/* Main Content */}
-      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Stats Cards */}
-        <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {[
             { label: "Blogs", value: "5", icon: "📝", color: "blue" },
             { label: "Projects", value: "5", icon: "🚀", color: "purple" },
@@ -78,14 +78,14 @@ export default function AdminDashboard() {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                  <p className="text-xs font-medium uppercase text-gray-600 dark:text-gray-400">
                     {stat.label}
                   </p>
-                  <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">
+                  <p className="mt-2 text-2xl font-bold text-gray-900 dark:text-white">
                     {stat.value}
                   </p>
                 </div>
-                <div className="text-4xl">{stat.icon}</div>
+                <div className="text-3xl">{stat.icon}</div>
               </div>
             </div>
           ))}
@@ -93,10 +93,10 @@ export default function AdminDashboard() {
 
         {/* Management Sections */}
         <div>
-          <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">
+          <h2 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">
             Management Sections
           </h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[
               { title: "Manage Blogs", href: "/admin/blogs", icon: "📝" },
               { title: "Manage Projects", href: "/admin/projects", icon: "🚀" },
@@ -108,19 +108,19 @@ export default function AdminDashboard() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="group block rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-primary hover:shadow-lg hover:scale-105 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-blue-500"
+                className="group block rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-primary hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:border-blue-500"
               >
                 <div className="mb-3 text-4xl group-hover:scale-110 transition-transform">
                   {item.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary dark:text-white dark:group-hover:text-blue-400 transition-colors">
+                <h3 className="text-base font-semibold text-gray-900 transition-colors group-hover:text-primary dark:text-white dark:group-hover:text-blue-400">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                   View and manage your {item.title.toLowerCase()}
                 </p>
-                <div className="mt-4 flex items-center text-primary group-hover:translate-x-1 transition-transform">
-                  <span className="text-sm font-medium">Go to →</span>
+                <div className="mt-4 flex items-center text-xs font-medium text-primary group-hover:translate-x-1 transition-transform">
+                  <span>Go to →</span>
                 </div>
               </Link>
             ))}
