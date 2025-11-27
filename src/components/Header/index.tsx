@@ -180,7 +180,7 @@ const Header = () => {
                   Sign Up
                 </Link> */}
                 <Link
-                  href="/admin"
+                  href="/admin/login"
                   className="ease-in-up shadow-btn hover:shadow-btn-hover bg-primary hover:bg-primary/90 hidden rounded-xs px-6 py-2 text-sm font-medium text-white transition duration-300 md:block lg:px-6"
                 >
                   Admin
