@@ -16,10 +16,15 @@ export default function AdminLayout({
   const pathname = usePathname();
 
   useEffect(() => {
+    // Don't redirect if on login page
+    if (pathname === "/admin/login") {
+      return;
+    }
+    
     if (status === "unauthenticated") {
       router.push("/admin/login");
     }
-  }, [status, router]);
+  }, [status, router, pathname]);
 
   if (status === "loading") {
     return (
@@ -27,6 +32,11 @@ export default function AdminLayout({
         <p>Loading...</p>
       </div>
     );
+  }
+
+  // Show login page without sidebar
+  if (pathname === "/admin/login") {
+    return <>{children}</>;
   }
 
   if (!session) {
