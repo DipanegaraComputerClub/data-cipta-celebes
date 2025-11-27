@@ -1,0 +1,20 @@
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+export async function GET(request: Request) {
+  try {
+    const url = new URL(request.url);
+    const limit = url.searchParams.get("limit") ? parseInt(url.searchParams.get("limit")!) : undefined;
+
+    const projects = await prisma.project.findMany({
+      orderBy: { createdAt: "desc" },
+      take: limit,
+    });
+
+    return Response.json(projects);
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    return Response.json({ error: "Failed to fetch projects" }, { status: 500 });
+  }
+}

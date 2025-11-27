@@ -1,11 +1,39 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import SectionTitle from "../Common/SectionTitle";
 import Link from "next/link";
 
+interface ContactInfo {
+  id: number;
+  type: string;
+  value: string;
+  label: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 const Contact = () => {
   const ref = useScrollAnimation();
+  const [contacts, setContacts] = useState<ContactInfo[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchContacts = async () => {
+      try {
+        const response = await fetch("/api/contacts");
+        const data = await response.json();
+        setContacts(data);
+      } catch (error) {
+        console.error("Failed to fetch contacts:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchContacts();
+  }, []);
 
   return (
     <section
@@ -106,53 +134,56 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="rounded-lg bg-gradient-to-br from-primary/10 to-blue-600/10 p-8 dark:from-primary/20 dark:to-blue-600/20">
-              <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-primary/20">
-                <span className="text-2xl">📞</span>
+            {isLoading ? (
+              <div className="text-center py-8">
+                <p className="text-gray-600 dark:text-gray-400">Loading contact info...</p>
               </div>
-              <h3 className="mb-2 text-lg font-bold text-black dark:text-white">
-                Whatsapp & Telepon
-              </h3>
-              <p className="text-body-color dark:text-body-color-dark">
-                +62 821-9785-5715
-              </p>
-              <Link
-                href="https://wa.me/6282197855715?text=Halo%20saya%20ingin%20berkonsultasi"
-                className="mt-3 inline-flex items-center gap-2 text-primary hover:gap-3 transition-all duration-300"
-              >
-                Chat di WhatsApp →
-              </Link>
-            </div>
+            ) : contacts.length === 0 ? (
+              <div className="text-center py-8">
+                <p className="text-gray-600 dark:text-gray-400">No contact info available</p>
+              </div>
+            ) : (
+              contacts.map((contact) => {
+                const iconEmoji =
+                  contact.type === "phone"
+                    ? "📞"
+                    : contact.type === "email"
+                      ? "📧"
+                      : contact.type === "address"
+                        ? "📍"
+                        : "🔗";
 
-            <div className="rounded-lg bg-gradient-to-br from-primary/10 to-blue-600/10 p-8 dark:from-primary/20 dark:to-blue-600/20">
-              <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-primary/20">
-                <span className="text-2xl">📧</span>
-              </div>
-              <h3 className="mb-2 text-lg font-bold text-black dark:text-white">
-                Email
-              </h3>
-              <p className="text-body-color dark:text-body-color-dark">
-                info@datacipta.com
-              </p>
-              <Link
-                href="mailto:info@datacipta.com"
-                className="mt-3 inline-flex items-center gap-2 text-primary hover:gap-3 transition-all duration-300"
-              >
-                Kirim Email →
-              </Link>
-            </div>
-
-            <div className="rounded-lg bg-gradient-to-br from-primary/10 to-blue-600/10 p-8 dark:from-primary/20 dark:to-blue-600/20">
-              <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-primary/20">
-                <span className="text-2xl">📍</span>
-              </div>
-              <h3 className="mb-2 text-lg font-bold text-black dark:text-white">
-                Lokasi
-              </h3>
-              <p className="text-body-color dark:text-body-color-dark">
-                Makassar, Sulawesi Selatan, Indonesia
-              </p>
-            </div>
+                return (
+                  <div key={contact.id} className="rounded-lg bg-gradient-to-br from-primary/10 to-blue-600/10 p-8 dark:from-primary/20 dark:to-blue-600/20">
+                    <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-primary/20">
+                      <span className="text-2xl">{iconEmoji}</span>
+                    </div>
+                    <h3 className="mb-2 text-lg font-bold text-black dark:text-white">
+                      {contact.label}
+                    </h3>
+                    <p className="text-body-color dark:text-body-color-dark">
+                      {contact.value}
+                    </p>
+                    {contact.type === "phone" && (
+                      <Link
+                        href={`https://wa.me/${contact.value.replace(/[^0-9]/g, "")}?text=Halo%20saya%20ingin%20berkonsultasi`}
+                        className="mt-3 inline-flex items-center gap-2 text-primary hover:gap-3 transition-all duration-300"
+                      >
+                        Chat di WhatsApp →
+                      </Link>
+                    )}
+                    {contact.type === "email" && (
+                      <Link
+                        href={`mailto:${contact.value}`}
+                        className="mt-3 inline-flex items-center gap-2 text-primary hover:gap-3 transition-all duration-300"
+                      >
+                        Kirim Email →
+                      </Link>
+                    )}
+                  </div>
+                );
+              })
+            )}
           </div>
         </div>
 
