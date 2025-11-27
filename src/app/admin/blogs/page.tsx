@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { uploadImage } from "@/utils/imageUpload";
 
 interface Blog {
   id: number;
@@ -26,6 +27,7 @@ export default function BlogsManagement() {
   const [isLoading, setIsLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState<number | null>(null);
+  const [uploadingImage, setUploadingImage] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
     slug: "",
@@ -148,6 +150,21 @@ export default function BlogsManagement() {
     });
   };
 
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploadingImage(true);
+    try {
+      const url = await uploadImage(file);
+      setFormData({ ...formData, image: url });
+    } catch (error) {
+      alert(`Upload failed: ${error.message}`);
+    } finally {
+      setUploadingImage(false);
+    }
+  };
+
   if (isLoading) {
     return <div className="text-center py-12">Loading...</div>;
   }
@@ -210,14 +227,32 @@ export default function BlogsManagement() {
               </select>
             </div>
 
-            <input
-              type="url"
-              placeholder="Image URL"
-              value={formData.image}
-              onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-              required
-            />
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Blog Image
+              </label>
+              <div className="flex gap-4 items-end">
+                <div className="flex-1">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    disabled={uploadingImage}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  />
+                </div>
+                {uploadingImage && <span className="text-sm text-blue-600">Uploading...</span>}
+              </div>
+              {formData.image && (
+                <div className="mt-2">
+                  <img 
+                    src={formData.image} 
+                    alt="Preview" 
+                    className="h-20 w-32 object-cover rounded-lg"
+                  />
+                </div>
+              )}
+            </div>
 
             <textarea
               placeholder="Description"

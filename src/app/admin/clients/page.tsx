@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { ImageUploadField } from "@/components/Admin/ImageUploadField";
 
 interface Client {
   id: number;
@@ -100,13 +101,10 @@ export default function ClientsManagement() {
               className="w-full px-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               required
             />
-            <input
-              type="url"
-              placeholder="Logo URL"
-              value={formData.logo}
-              onChange={(e) => setFormData({ ...formData, logo: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-              required
+            <ImageUploadField
+              currentImage={formData.logo}
+              onImageChange={(url) => setFormData({ ...formData, logo: url })}
+              label="Client Logo"
             />
             <input
               type="text"

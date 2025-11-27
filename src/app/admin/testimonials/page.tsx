@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { ImageUploadField } from "@/components/Admin/ImageUploadField";
 
 interface Testimonial {
   id: number;
@@ -138,13 +139,10 @@ export default function TestimonialsManagement() {
               required
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="url"
-                placeholder="Image URL"
-                value={formData.image}
-                onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                required
+              <ImageUploadField
+                currentImage={formData.image}
+                onImageChange={(url) => setFormData({ ...formData, image: url })}
+                label="Profile Image"
               />
               <select
                 value={formData.rating}
