@@ -8,6 +8,7 @@ const Hero = () => {
     text: "Solusi Software & Custom App Development untuk transformasi digital bisnis Anda. Dengan teknologi terkini dan tim profesional, kami siap menghadirkan inovasi yang membuat bisnis Anda berkembang pesat.",
     speed: 30,
     delay: 300,
+    active: true
   });
 
   return (
@@ -21,12 +22,6 @@ const Hero = () => {
             {/* Left Content */}
             <div className="w-full px-0 lg:w-1/2 lg:px-4">
               <div className="slide-left px-4 lg:px-0">
-                <div className="mb-4 inline-block">
-                  <span className="inline-block rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
-                    ✨ Transformasi Digital Dimulai Di Sini
-                  </span>
-                </div>
-
                 <h1 className="mb-6 text-4xl font-bold leading-tight text-black dark:text-white sm:text-5xl md:text-6xl lg:text-5xl">
                   Data Cipta{" "}
                   <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
