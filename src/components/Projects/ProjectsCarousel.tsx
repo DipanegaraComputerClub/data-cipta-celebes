@@ -54,7 +54,11 @@ const ProjectsCarousel = () => {
       setDirection("right");
     }, 5000);
 
-    return () => clearInterval(autoScrollTimer.current);
+    return () => {
+      if (autoScrollTimer.current) {
+        clearInterval(autoScrollTimer.current);
+      }
+    };
   }, [projects.length]);
 
   const handlePrev = () => {

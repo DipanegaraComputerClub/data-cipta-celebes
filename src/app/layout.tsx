@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const isAdminPage = pathname.startsWith("/admin");
+  const isAdminPage = pathname ? pathname.startsWith("/admin") : false;
 
   return (
     <html suppressHydrationWarning lang="en">
