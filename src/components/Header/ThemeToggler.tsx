@@ -6,7 +6,7 @@ const ThemeToggler = () => {
     <button aria-label='theme toggler'
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       suppressHydrationWarning
-      className="flex items-center justify-center text-black rounded-full cursor-pointer bg-gray-2 dark:bg-dark-bg h-9 w-9 dark:text-white md:h-14 md:w-14"
+      className="flex items-center justify-center text-black rounded-full cursor-pointer bg-gray-2 dark:bg-dark-bg h-9 w-9 dark:text-white lg:h-11 lg:w-11"
     >
       <svg
         viewBox="0 0 23 23"

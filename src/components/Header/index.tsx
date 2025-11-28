@@ -73,8 +73,8 @@ const Header = () => {
         }`}
       >
         <div className="container">
-          <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-40 max-w-full px-4 xl:mr-12">
+          <div className="relative flex items-center justify-between">
+            <div className="w-32 lg:w-40 max-w-full px-4 xl:mr-12">
               <Link
                 href="/"
                 className={`header-logo block w-full ${
@@ -97,14 +97,14 @@ const Header = () => {
                 />
               </Link>
             </div>
-            <div className="flex w-full items-center justify-between px-4">
-              <div>
+            <div className="flex w-full items-center justify-between px-4 lg:px-0">
+              <div className="flex-1 lg:flex-none">
                 <button
                   onClick={navbarToggleHandler}
                   id="navbarToggler"
                   aria-label="Mobile Menu"
                   suppressHydrationWarning
-                  className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-lg px-2 py-1 focus:ring-2 lg:hidden z-50"
+                  className="ring-primary block rounded-lg px-2 py-1 focus:ring-2 lg:hidden"
                 >
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
@@ -124,10 +124,10 @@ const Header = () => {
                 </button>
                 <nav
                   id="navbarCollapse"
-                  className={`navbar border-body-color/50 dark:border-body-color/20 dark:bg-dark absolute right-0 z-30 w-[250px] rounded border-[.5px] bg-white px-6 py-4 duration-300 lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
+                  className={`navbar border-body-color/50 dark:border-body-color/20 dark:bg-dark absolute left-0 right-0 top-full z-30 mx-4 rounded border-[.5px] bg-white px-6 py-4 shadow-lg duration-300 lg:visible lg:static lg:mx-0 lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none ${
                     navbarOpen
-                      ? "visibility top-full opacity-100"
-                      : "invisible top-[120%] opacity-0"
+                      ? "visible opacity-100"
+                      : "invisible opacity-0"
                   }`}
                 >
                   <ul className="block lg:flex lg:space-x-12">
@@ -182,26 +182,14 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              <div className="flex items-center justify-end gap-4 lg:gap-0 lg:pr-0">
-                {/* <Link
-                  href="/signin"
-                  className="ease-in-up shadow-btn hover:shadow-btn-hover bg-primary hover:bg-primary/90 hidden rounded-xs px-8 py-3 text-base font-medium text-white transition duration-300 md:block md:px-9 lg:px-6 xl:px-9"
-                >
-                  Sign In
-                </Link> */}
-                {/* <Link
-                  href="/signup"
-                  className="ease-in-up shadow-btn hover:shadow-btn-hover bg-primary hover:bg-primary/90 hidden rounded-xs px-8 py-3 text-base font-medium text-white transition duration-300 md:block md:px-9 lg:px-6 xl:px-9"
-                >
-                  Sign Up
-                </Link> */}
+              <div className="flex items-center justify-end gap-2 lg:gap-4">
                 <Link
                   href="/admin"
-                  className="ease-in-up shadow-btn hover:shadow-btn-hover bg-primary hover:bg-primary/90 rounded-xs px-4 py-1.5 text-xs font-medium text-white transition duration-300 lg:px-5 lg:py-2 lg:text-sm"
+                  className="ease-in-up shadow-btn hover:shadow-btn-hover bg-primary hover:bg-primary/90 rounded-xs px-3 py-1.5 text-xs font-medium text-white transition duration-300 lg:px-5 lg:py-2 lg:text-sm"
                 >
                   Admin
                 </Link>
-                <div>
+                <div className="flex-shrink-0">
                   <ThemeToggler />
                 </div>
               </div>
