@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:seed": "node --loader tsx prisma/seed.ts",
+    "prisma:seed": "node prisma/seed.js",
     "db:push": "prisma db push",
     "db:studio": "prisma studio"
   },
