@@ -54,31 +54,34 @@ const ClientsSupport = () => {
             <p className="text-gray-600 dark:text-gray-400">No clients available</p>
           </div>
         ) : (
-          <div className="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {clients.map((client) => (
-              <div
-                key={client.id}
-                className="stagger-item group rounded-lg bg-gradient-to-br from-gray-light to-white p-6 text-center shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 dark:from-gray-dark dark:to-gray-dark"
-              >
-                {client.logo ? (
-                  <img 
-                    src={client.logo} 
-                    alt={client.name}
-                    className="mb-4 h-12 w-12 mx-auto group-hover:scale-110 transition-transform duration-300 object-contain"
-                  />
-                ) : (
-                  <div className="mb-4 text-5xl group-hover:scale-110 transition-transform duration-300">
-                    🏢
-                  </div>
-                )}
-                <h3 className="text-lg font-semibold text-black dark:text-white">
-                  {client.name}
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  {client.industry}
-                </p>
-              </div>
-            ))}
+          <div className="mb-12 relative overflow-hidden">
+            <div className="animate-scroll-horizontal flex gap-6">
+              {/* Duplicate clients for seamless loop */}
+              {[...clients, ...clients].map((client, index) => (
+                <div
+                  key={`${client.id}-${index}`}
+                  className="flex-shrink-0 group rounded-lg bg-gradient-to-br from-gray-light to-white p-6 text-center shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 dark:from-gray-dark dark:to-gray-dark min-w-[200px]"
+                >
+                  {client.logo ? (
+                    <img 
+                      src={client.logo} 
+                      alt={client.name}
+                      className="mb-4 h-12 w-12 mx-auto group-hover:scale-110 transition-transform duration-300 object-contain"
+                    />
+                  ) : (
+                    <div className="mb-4 text-5xl group-hover:scale-110 transition-transform duration-300">
+                      🏢
+                    </div>
+                  )}
+                  <h3 className="text-lg font-semibold text-black dark:text-white">
+                    {client.name}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                    {client.industry}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 

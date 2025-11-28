@@ -205,7 +205,7 @@ const ProjectsCarousel = () => {
 
                           {/* CTA Button */}
                           <Link
-                            href={`/project/${project.slug}`}
+                            href={`/project/${project.id}`}
                             className="mt-2 inline-flex w-fit items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-blue-600 px-4 py-2 text-xs font-semibold text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 md:mt-0 md:px-6 md:py-3 md:text-sm"
                           >
                             Lihat Detail →

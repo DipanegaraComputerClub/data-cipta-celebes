@@ -43,6 +43,26 @@ const Header = () => {
     setNavbarOpen(false);
   };
 
+  // Smooth scroll to section
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    handleLinkClick();
+    
+    if (href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        const offset = 80; // Header height
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
   return (
     <>
       <header
@@ -54,25 +74,25 @@ const Header = () => {
       >
         <div className="container">
           <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-60 max-w-full px-4 xl:mr-12">
+            <div className="w-40 max-w-full px-4 xl:mr-12">
               <Link
                 href="/"
                 className={`header-logo block w-full ${
-                  sticky ? "py-5 lg:py-2" : "py-8"
+                  sticky ? "py-3 lg:py-2" : "py-5"
                 } `}
               >
                 <Image
                   src="/images/logo/logoCvBlack.png"
                   alt="logo"
-                  width={140}
-                  height={30}
+                  width={120}
+                  height={25}
                   className="w-full dark:hidden"
                 />
                 <Image
                   src="/images/logo/logoCvWhite.png"
                   alt="logo"
-                  width={140}
-                  height={30}
+                  width={120}
+                  height={25}
                   className="hidden w-full dark:block"
                 />
               </Link>
@@ -84,7 +104,7 @@ const Header = () => {
                   id="navbarToggler"
                   aria-label="Mobile Menu"
                   suppressHydrationWarning
-                  className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-lg px-3 py-[6px] focus:ring-2 lg:hidden"
+                  className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-lg px-2 py-1 focus:ring-2 lg:hidden z-50"
                 >
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
@@ -114,17 +134,13 @@ const Header = () => {
                     {menuData.map((menuItem, index) => (
                       <li key={index} className="group relative">
                         {menuItem.path ? (
-                          <Link
+                          <a
                             href={menuItem.path}
-                            onClick={handleLinkClick}
-                            className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
-                              usePathName === menuItem.path
-                                ? "text-primary dark:text-white"
-                                : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
-                            }`}
+                            onClick={(e) => scrollToSection(e, menuItem.path || '#')}
+                            className="flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 cursor-pointer text-dark hover:text-primary dark:text-white/70 dark:hover:text-white transition-colors"
                           >
                             {menuItem.title}
-                          </Link>
+                          </a>
                         ) : (
                           <>
                             <p
@@ -181,7 +197,7 @@ const Header = () => {
                 </Link> */}
                 <Link
                   href="/admin"
-                  className="ease-in-up shadow-btn hover:shadow-btn-hover bg-primary hover:bg-primary/90 hidden rounded-xs px-6 py-2 text-sm font-medium text-white transition duration-300 md:block lg:px-6"
+                  className="ease-in-up shadow-btn hover:shadow-btn-hover bg-primary hover:bg-primary/90 rounded-xs px-4 py-1.5 text-xs font-medium text-white transition duration-300 lg:px-5 lg:py-2 lg:text-sm"
                 >
                   Admin
                 </Link>

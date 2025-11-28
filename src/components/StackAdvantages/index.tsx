@@ -96,25 +96,28 @@ const StackAdvantages = () => {
           ))}
         </div>
 
-        {/* Tech Stack */}
+        {/* Tech Stack with Horizontal Scroll Animation */}
         <div className="mt-16 border-t border-stroke dark:border-stroke-dark pt-12">
           <h2 className="mb-12 text-center text-3xl font-bold text-black dark:text-white">
             Tech Stack Yang Kami Gunakan
           </h2>
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-10">
-            {stackData.map((tech, index) => (
-              <div
-                key={index}
-                className="stagger-item group rounded-lg bg-gray-light p-6 text-center transition-all duration-300 hover:bg-primary/10 dark:bg-gray-dark dark:hover:bg-primary/20"
-              >
-                <div className="mb-2 text-3xl group-hover:scale-110 transition-transform duration-300">
-                  {tech.icon}
+          <div className="relative overflow-hidden">
+            <div className="animate-scroll-horizontal flex gap-8">
+              {/* Duplicate items for seamless loop */}
+              {[...stackData, ...stackData].map((tech, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 group rounded-lg bg-gray-light p-6 text-center transition-all duration-300 hover:bg-primary/10 dark:bg-gray-dark dark:hover:bg-primary/20 min-w-[120px]"
+                >
+                  <div className="mb-2 text-3xl group-hover:scale-110 transition-transform duration-300">
+                    {tech.icon}
+                  </div>
+                  <p className="text-sm font-semibold text-black dark:text-white whitespace-nowrap">
+                    {tech.name}
+                  </p>
                 </div>
-                <p className="text-sm font-semibold text-black dark:text-white">
-                  {tech.name}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
