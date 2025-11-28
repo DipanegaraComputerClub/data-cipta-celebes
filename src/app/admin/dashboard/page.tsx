@@ -99,7 +99,7 @@ export default function AdminDashboard() {
       {/* Welcome Banner */}
       <div className="mb-8 rounded-xl bg-gradient-to-r from-primary to-blue-600 p-8 text-white shadow-lg">
         <h1 className="text-3xl font-bold mb-2">Welcome back, {session.user?.name}! 👋</h1>
-        <p className="text-blue-100">Here's what's happening with your content today</p>
+        <p className="text-blue-100">Here whats happening with your content today</p>
       </div>
 
       {/* Stats Grid */}
