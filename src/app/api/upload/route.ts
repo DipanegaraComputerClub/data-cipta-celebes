@@ -3,7 +3,7 @@ import { join } from "path";
 import { existsSync } from "fs";
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 
 export const POST = async (req: NextRequest) => {
   try {
